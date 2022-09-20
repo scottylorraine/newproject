@@ -11,7 +11,7 @@ build-docker-image:
 Push Docker Image to GitLab Registry:
   stage: push-image-to-gitlab-registry
   before_script:
-    - docker login registry.gitlab.com -u "$CIREGEISTARYUSER" -p "$CIGITLABTOKEN"
+    - docker login hub-peerxp.vegaops.com -u "$CIREGISTRYUSER" -p "$CIGITLABTOKEN"
   script:
     - docker info
     - docker push hub-peerxp.vegaops.com/devops-assignment/java_200922_2095
