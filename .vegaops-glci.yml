@@ -1,17 +1,12 @@
 stages:
     - build-docker-image
-    - push-image-to-gitlab-registry
-
-build-docker-image:
+    
+build image:
     image: docker
     stage: build-docker-image
-    script: 
-        - docker info
-        - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .        
-push-image-to-gitlab-registry:
-    stage: push-image-to-gitlab-registry
-    before_script:
-        - docker login hub-peerxp.vegaops.com -u "CIREGISTRYUSER" -p "CIGITLABTOKEN"
-script:
-    - docker info
-    - docker push hub-peerxp.vegaops.com/devops-assignment/java_200922_2095
+    services:
+        - docker:dind
+    script:
+        - echo $CI_REGISTARY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_GITLAB_TOKEN --password-stdin
+        - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .
+        - docker push hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 
