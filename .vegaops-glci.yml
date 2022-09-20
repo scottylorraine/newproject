@@ -3,6 +3,6 @@ docker-build:
   stage: build
   services:
     - docker:dind
-  before_script:
+  script:
     - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .
  
