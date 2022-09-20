@@ -3,7 +3,7 @@ stages:
     - push-image-to-gitlab-registry
 
 build-docker-image:
-    image: docker:latest
+    image: docker
     stage: build-docker-image
     script: 
         - docker info
