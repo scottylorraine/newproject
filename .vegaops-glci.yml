@@ -6,12 +6,12 @@ build-docker-image:
     image: docker:latest
     stage: build-docker-image
     script: 
-        -docker info
+        - docker info
         - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .        
 push-image-to-gitlab-registry:
     stage: push-image-to-gitlab-registry
     before_script:
-        -docker login hub-peerxp.vegaops.com -u "CIREGISTRYUSER" -p "CIGITLABTOKEN"
+        - docker login hub-peerxp.vegaops.com -u "CIREGISTRYUSER" -p "CIGITLABTOKEN"
 script:
-    -docker info
-    -docker push hub-peerxp.vegaops.com/devops-assignment/java_200922_2095
+    - docker info
+    - docker push hub-peerxp.vegaops.com/devops-assignment/java_200922_2095
