@@ -1,0 +1,9 @@
+docker-build:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" 
+    - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .
+ 
