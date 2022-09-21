@@ -1,12 +1,11 @@
 image: docker:stable
 
-variables:
-    IMAGE NAME: "tomcat:8.5"
+
 
 build image:
     image: docker
     services: 
         -docker:dind
     script:
-        -echo $CI_REGISTRY_PASSWORD | docker login hub-peerxp.vegaops.com -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+        - echo $CI_REGISTRY_PASSWORD | docker login hub-peerxp.vegaops.com -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
         - docker build -t $CI_REGISTRY_IMAGE .
