@@ -3,7 +3,5 @@ docker-build:
   stage: build
   services:
     - docker:dind
-  before_script:
-    - docker login -u "$sananth758@gmail.com" -p "$CI_GITLAB_TOKEN"
   script:
     - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .
