@@ -1,0 +1,5 @@
+build-docker-image:
+    stage: build-docker-image
+    script:
+        - docker info
+        - docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .
