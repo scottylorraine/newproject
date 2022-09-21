@@ -1,9 +1,0 @@
-docker-build:
-  image: docker:latest
-  stage: build
-  services:
-    - docker:dind
-  before_script:
-    docker login hub-peerxp.vegaops.com -u "$sananth758@gmail.com" -p "$Valorant143"
-  script:
-    docker build -t hub-peerxp.vegaops.com/devops-assignment/java_200922_2095 .
